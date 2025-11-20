@@ -470,6 +470,130 @@ iframe{
 .footer .social-icons a:hover {
   color: #ffbe0b;
 }
+/* ========================= */
+/*      RESPONSIVE FULL      */
+/* ========================= */
+
+/* Tablet & HP */
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  header {
+    padding: 15px 20px;
+  }
+
+  nav {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.97);
+    padding: 20px;
+    border-radius: 0 0 0 12px;
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  nav.show {
+    transform: translateX(0);
+  }
+
+  nav a {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px; /* font mengecil */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* ===== HOME / HERO ===== */
+  #home {
+    height: 80vh;
+    padding: 0 20px;
+  }
+
+  .container-home h1 {
+    font-size: 2rem; /* mengecil */
+  }
+
+  .container-home p {
+    font-size: 0.9rem; /* mengecil */
+    text-align: center;
+  }
+
+  /* ===== ABOUT SECTION ===== */
+  .about-row,
+  .about-row.reversed {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+
+  .about-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  /* ===== WISATA ===== */
+  .wisata-grid {
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+  }
+
+  .destination img {
+    width: 100%;
+    height: 200px; /* tetap proporsional */
+  }
+
+  .destination h6 {
+    font-size: 0.9rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer .social-icons a {
+    font-size: 18px; /* ikon mengecil */
+    margin: 0 5px;
+  }
+}
+
+/* ========================= */
+/*   HP KECIL (≤480px)      */
+/* ========================= */
+@media (max-width: 480px) {
+
+  .container-home h1 {
+    font-size: 1.6rem;
+  }
+
+  .container-home p {
+    font-size: 0.85rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  #wisata h2 {
+    font-size: 1.7rem;
+  }
+
+  .destination h6 {
+    font-size: 0.8rem;
+  }
+}
+
 
   </style>
 </head>
@@ -610,6 +734,11 @@ iframe{
     </div>
   </div>
 </footer>
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
