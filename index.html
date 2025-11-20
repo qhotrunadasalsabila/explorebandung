@@ -105,37 +105,42 @@
       text-align: justify;
     }
 
-    /* === ABOUT SECTION === */
-    /* === SECTION 2 - SELANG SELING === */
-
-.about-section {
-  padding: 120px 40px;
+    .about-section {
+  padding: 80px 20px;
   background: #e8f4ec;
+  overflow-x: auto;       /* scroll horizontal aktif */
+  display: flex;          /* jadikan anak-anaknya fleksibel */
+  gap: 30px;              /* jarak antar card */
+  scroll-behavior: smooth;
 }
 
-.about-title {
-  text-align: center;
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #2a8c4f;
-  margin-bottom: 80px;
-  letter-spacing: 1px;
-}
-
-/* Layout baris */
 .about-row {
+  flex: 0 0 300px;        /* setiap card punya lebar tetap, tidak mengecil */
   display: flex;
-  align-items: center;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto 90px auto;
-  padding: 20px;
+  flex-direction: column; /* agar gambar di atas, teks di bawah */
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  scroll-snap-align: start; /* optional: snap saat scroll */
 }
 
-/* Untuk selang-seling */
-.about-row.reversed {
-  flex-direction: row-reverse;
+.about-row .about-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
+
+.about-row .about-content h3,
+.about-row .about-content p {
+  font-size: 1rem;
+  color: #355b3c;
+}
+
+
+    
 
 /* Foto */
 .about-img img {
@@ -170,24 +175,21 @@
   color: #355b3c;
   max-width: 600px;
 }
-
-/* Animasi fade in + slide */
-.fade-in {
+/* === SCROLL REVEAL ANIMATION === */
+.reveal {
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlide 1s ease forwards;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-.fade-in:nth-child(2) {
-  animation-delay: 0.3s;
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fadeSlide {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
+
+
 
 /* RESPONSIVE */
 @media (max-width: 800px) {
@@ -592,7 +594,24 @@ iframe{
   .destination h6 {
     font-size: 0.8rem;
   }
+@media (max-width: 768px) {
+  .about-section {
+    overflow-x: auto;
+    gap: 20px;
+    padding: 50px 10px;
+  }
+
+  .about-row {
+    flex: 0 0 250px;
+  }
+
+  .about-row .about-img img {
+    height: 180px;
+  }
 }
+
+
+
 
 
   </style>
@@ -626,47 +645,49 @@ iframe{
         Bandung bukan hanya tempat untuk dikunjungi, tapi untuk dirasakan dengan mata, dengan hati, dengan seluruh jiwa.
         Ia adalah kota yang bisa membuatmu jatuh cinta tanpa alasan, lalu merindukannya tanpa tahu kapan bisa kembali.
         Dan mungkin itulah pesonanya: Bandung tidak meminta untuk diingat, tapi selalu berhasil menjadi bagian dari ingatan.
+        Ada rindu yang tak pernah padam setiap kali nama Bandung disebut. 
+        Rindu pada angin Lembang yang menurunkan suhu hati, pada aroma kopi di sudut Braga, pada tawa yang pecah di antara macetnya Dago. 
+        Bandung adalah kota yang membuat setiap pulang terasa seperti kembali ke bagian diri yang pernah kita tinggalkan
+        . Meski jarak memisahkan,hati selalu punya jalannya sendiri untuk kembali merindukan Bandung.
       </p>
     </div>
   </section>
-<!--
-   === ABOUT === -->
-<section id="about" class="about-section">
-  <h1 class="about-title">Khas Bandung</h1>
+  <section id="about" class="about-section">
+  <!-- Card 1 -->
+  <div class="about-row reveal">
+    <div class="about-img">
+      <img src="about.jpeg" alt="about">
+    </div>
+    <div class="about-content">
+      <h3>Sejuknya Kota Bandung</h3>
+      <p>Bandung hidup dalam kesejukan pegunungannya, aroma hujan, dan derap langkah orang-orang...</p>
+    </div>
+  </div>
 
-  <!-- Item 1 -->
-  <div class="about-row fade-in">
+  <!-- Card 2 -->
+  <div class="about-row reveal">
     <div class="about-img">
       <img src="Batagor.jpeg" alt="Batagor Bandung">
     </div>
     <div class="about-content">
       <h3>Batagor</h3>
-      <p>
-        Batagor adalah makanan khas Bandung berbahan dasar ikan dan tahu 
-        yang digoreng hingga renyah, lalu disajikan dengan saus kacang 
-        yang gurih dan pedas. Cita rasa autentiknya membuat Batagor 
-        menjadi kuliner paling terkenal di kota ini.
-      </p>
+      <p>Batagor adalah makanan khas Bandung berbahan dasar ikan dan tahu yang digoreng hingga renyah...</p>
     </div>
   </div>
 
-  <!-- Item 2 (otomatis selang-seling karena kelas reversed) -->
-  <div class="about-row reversed fade-in">
+  <!-- Card 3 -->
+  <div class="about-row reveal">
     <div class="about-img">
       <img src="gedung sate.jpeg" alt="Gedung Sate">
     </div>
     <div class="about-content">
       <h3>Gedung Sate</h3>
-      <p>
-        Gedung Sate adalah ikon Kota Bandung yang dibangun tahun 1920 
-        dengan gaya arsitektur kolonial klasik yang berpadu unsur 
-        Nusantara. Bangunan ini memiliki ciri khas ornamen tusuk sate 
-        di puncaknya yang membuatnya mudah dikenali.
-      </p>
+      <p>Gedung Sate adalah ikon Kota Bandung yang dibangun tahun 1920...</p>
     </div>
   </div>
-
 </section>
+
+
 <section id="wisata">
   <h2>Destinasi Wisata di Bandung</h2>
 
@@ -739,6 +760,21 @@ iframe{
     document.getElementById("nav-menu").classList.toggle("show");
   }
 </script>
+<script>
+  // === SCROLL REVEAL ===
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
 
 </body>
 </html>
