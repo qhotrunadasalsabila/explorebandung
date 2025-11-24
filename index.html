@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore Bandung</title>
 
-  <!-- FONT AWESOME FIXED -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-/* =========================================================
-   ===============  RESET & GLOBAL STYLE  ==================
-   ========================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -25,10 +22,6 @@ body {
   background-color: #fff;
   scroll-behavior: smooth;
 }
-
-/* =========================================================
-   ======================= NAVBAR ===========================
-   ========================================================= */
 
 header {
   width: 100%;
@@ -105,10 +98,6 @@ nav a:hover {
   }
 }
 
-/* =========================================================
-   ====================== HOME SECTION ======================
-   ========================================================= */
-
 #home {
   height: 100vh;
   background: url('bandung2.jpeg') no-repeat center/cover;
@@ -143,10 +132,6 @@ nav a:hover {
   font-size: 1rem;
   text-align: justify;
 }
-
-/* =========================================================
-   ======================== ABOUT ===========================
-   ========================================================= */
 
 #about {
   padding: 50px 20px;
@@ -196,7 +181,7 @@ nav a:hover {
   font-size: .95rem;
 }
 
-/* scroll animation */
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -207,10 +192,6 @@ nav a:hover {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* =========================================================
-   ====================== WISATA SECTION ====================
-   ========================================================= */
 
 #wisata {
   padding: 80px 40px;
@@ -289,7 +270,6 @@ nav a:hover {
   margin: 0 auto;
 }
 
-/* Top Section */
 .footer-top {
   text-align: center;
 }
@@ -309,6 +289,7 @@ nav a:hover {
   display: flex;
   justify-content: center;
   gap: 15px;
+  text-decoration: none;
 }
 
 .social-icons a {
@@ -322,6 +303,7 @@ nav a:hover {
   border-radius: 50%;
   font-size: 18px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .social-icons a:hover {
@@ -330,7 +312,6 @@ nav a:hover {
   transform: scale(1.1);
 }
 
-/* Middle Section */
 .footer-middle {
   display: flex;
   justify-content: space-around;
@@ -359,7 +340,6 @@ nav a:hover {
   color: #d4f0c6;
 }
 
-/* Bottom Section */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -369,7 +349,6 @@ nav a:hover {
   font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer-middle {
     flex-direction: column;
@@ -382,7 +361,6 @@ nav a:hover {
 
 <body>
 
-<!-- ========================= NAVBAR ========================= -->
 <header>
   <div class="logo">
     <img src="bandung.jpg">
@@ -400,7 +378,6 @@ nav a:hover {
   </nav>
 </header>
 
-<!-- ========================= HOME ========================= -->
 <section id="home">
   <div class="container-home">
     <h1>BANDUNG</h1>
@@ -418,7 +395,6 @@ nav a:hover {
   </div>
 </section>
 
-<!-- ========================= ABOUT ========================= -->
 <section id="about">
   <h2 class="about-title">About Bandung</h2>
 
@@ -426,22 +402,31 @@ nav a:hover {
 
     <div class="about-row reveal">
       <div class="about-img"><img src="Batagor.jpeg"></div>
-      <div class="about-content"><h3>Batagor</h3><p>Batagor adalah makanan khas Bandung...</p></div>
+      <div class="about-content"><h3>Batagor</h3><p>Batagor, singkatan dari Bakso Tahu Goreng, adalah cemilan khas Bandung yang wajib dicoba. 
+        Tahu renyah yang diisi adonan ikan atau ayam ini disajikan dengan saus kacang pedas manis yang bikin ketagihan.
+         Setiap gigitan menghadirkan kombinasi tekstur renyah, lembut, dan rasa gurih yang mewakili cita rasa kuliner Sunda. Cocok dinikmati saat bersantai di jalan-jalan Bandung atau sebagai teman kopi di sore hari.</p></div>
     </div>
 
     <div class="about-row reveal">
       <div class="about-img"><img src="gedung sate.jpeg"></div>
-      <div class="about-content"><h3>Gedung Sate</h3><p>Ikon Bandung sejak 1920.</p></div>
+      <div class="about-content"><h3>Gedung Sate</h3><p>Gedung Sate – Ikon Bersejarah Kota Bandung
+Gedung Sate adalah landmark ikonik Bandung yang terkenal dengan arsitektur uniknya dan tusuk sate di puncak menara. 
+Dibangun pada tahun 1920, gedung ini awalnya berfungsi sebagai kantor pemerintah Hindia Belanda.
+ Kini, Gedung Sate menjadi simbol sejarah dan kebanggaan warga Bandung, serta destinasi wajib untuk berfoto dan menikmati keindahan arsitektur klasik bergaya kolonial Belanda.</p></div>
     </div>
 
     <div class="about-row reveal">
       <div class="about-img"><img src="seblak.jpeg"></div>
-      <div class="about-content"><h3>Seblak</h3><p>Makanan khas Sunda pedas.</p></div>
+      <div class="about-content"><h3>Seblak</h3><p>Seblak adalah makanan khas Sunda yang terkenal dengan rasa pedas dan gurih. 
+        Terbuat dari kerupuk basah yang dimasak dengan bumbu rempah khas, dilengkapi sayuran, telur, atau sosis, seblak menghadirkan sensasi hangat dan nikmat di setiap suapannya.
+         Cemilan ini sangat populer di Bandung, cocok untuk kamu yang suka kuliner pedas dan penuh cita rasa.</p></div>
     </div>
 
     <div class="about-row reveal">
       <div class="about-img"><img src="Mercusuar Cafe & Resto Bandung.jpeg"></div>
-      <div class="about-content"><h3>Mercusuar Cafe</h3><p>Kafe tinggi dengan view kota Bandung.</p></div>
+      <div class="about-content"><h3>Mercusuar Cafe</h3><p>Mercusuar Cafe & Resto menawarkan pengalaman unik menikmati kota Bandung dari ketinggian.
+         Dengan desain kafe bertingkat seperti mercusuar, pengunjung bisa menikmati pemandangan kota yang menawan sambil menikmati hidangan lezat dan minuman khas.
+          Tempat ini cocok untuk santai, bersantai bersama teman, atau sekadar berburu foto Instagramable dengan latar panorama Bandung.</p></div>
     </div>
 
   </div>
@@ -492,11 +477,8 @@ nav a:hover {
   </div>
 </section>
 
-<!-- ========================= FOOTER ========================= -->
-<!-- ========================= FOOTER ========================= -->
 <footer class="footer" id="footer">
   <div class="footer-container">
-    <!-- Footer Top: Brand & Social -->
     <div class="footer-top">
       <h2>Explore Bandung</h2>
       <p>Temukan keindahan Bandung dari wisata, kuliner, budaya, hingga tempat unik.</p>
@@ -508,7 +490,7 @@ nav a:hover {
       </div>
     </div>
 
-    <!-- Footer Middle: Links -->
+  
     <div class="footer-middle">
       <div class="footer-col">
         <h3>Tentang</h3>
@@ -531,11 +513,6 @@ nav a:hover {
         <p>Email: explorebandung@mail.com</p>
         <p>Tel: +62 812 3456 7890</p>
       </div>
-    </div>
-
-    <!-- Footer Bottom: Copyright -->
-    <div class="footer-bottom">
-      &copy; 2025 Explore Bandung. All rights reserved.
     </div>
   </div>
 </footer>
