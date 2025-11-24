@@ -4,128 +4,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore Bandung</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.5.0/css/all.min.css">
+
+  <!-- FONT AWESOME FIXED -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    /* === RESET DASAR === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* =========================================================
+   ===============  RESET & GLOBAL STYLE  ==================
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #333;
-      scroll-behavior: smooth;
-    }
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
 
-    /* === NAVBAR === */
-    header {
-      width: 100%;
-      padding: 15px 40px;
-      background-color: rgba(255, 255, 255, 0.95);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
-    }
+/* =========================================================
+   ======================= NAVBAR ===========================
+   ========================================================= */
 
-    .logo img {
-      width: 60px;
-      height: auto;
-      border-radius: 5px;
-    }
+header {
+  width: 100%;
+  padding: 15px 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
+}
 
-    nav {
-      display: flex;
-      gap: 40px;
-    }
+.logo img {
+  width: 60px;
+  border-radius: 6px;
+}
 
-    nav a {
-      color: rgb(34, 56, 34);
-      text-decoration: none;
-      font-weight: 600;
-      text-transform: capitalize;
-      transition: color 0.3s;
-      letter-spacing: 2px;
-    }
+nav {
+  display: flex;
+  gap: 40px;
+}
 
-    nav a:hover {
-      color: #2a8c4f;
-    }
+nav a {
+  color: #224;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .5px;
+  transition: .3s;
+}
 
-    /* === HOME SECTION === */
-    #home {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background: url('bandung2.jpeg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
+nav a:hover {
+  color: #2a8c4f;
+}
 
-    #home::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #2a6f45;
+}
 
-    .container-home {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 20px;
-      margin-top: 80px; /* memberi jarak dari navbar */
-    }
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 240px;
+    flex-direction: column;
+    padding: 120px 25px;
+    gap: 25px;
+    background: #fff;
+    box-shadow: -3px 0 15px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: .3s ease;
+  }
 
-    .container-home h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
-    }
+  nav.show {
+    transform: translateX(0);
+  }
 
-    .container-home p {
-      font-size: 1.1rem;
-      color: #f0f0f0;
-      text-align: justify;
-    }
+  nav a {
+    font-size: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+  }
 
-    .about-section {
-  padding: 80px 20px;
-  background: #e8f4ec;
-  overflow-x: auto;       /* scroll horizontal aktif */
-  display: flex;          /* jadikan anak-anaknya fleksibel */
-  gap: 30px;              /* jarak antar card */
+  .hamburger {
+    display: block;
+  }
+}
+
+/* =========================================================
+   ====================== HOME SECTION ======================
+   ========================================================= */
+
+#home {
+  height: 100vh;
+  background: url('bandung2.jpeg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.container-home {
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 2;
+  margin-top: 80px;
+}
+
+.container-home h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.container-home p {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* =========================================================
+   ======================== ABOUT ===========================
+   ========================================================= */
+
+#about {
+  padding: 50px 20px;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1f6f3c;
+}
+
+.about-section {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px;
   scroll-behavior: smooth;
 }
 
 .about-row {
-  flex: 0 0 300px;        /* setiap card punya lebar tetap, tidak mengecil */
-  display: flex;
-  flex-direction: column; /* agar gambar di atas, teks di bawah */
+  flex: 0 0 300px;
   background: #fff;
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  scroll-snap-align: start; /* optional: snap saat scroll */
+  scroll-snap-align: start;
 }
 
-.about-row .about-img img {
+.about-img img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -133,53 +185,22 @@
   margin-bottom: 12px;
 }
 
-.about-row .about-content h3,
-.about-row .about-content p {
-  font-size: 1rem;
-  color: #355b3c;
-}
-
-
-    
-
-/* Foto */
-.about-img img {
-  width: 380px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(42, 140, 79, 0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.about-img img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 28px rgba(42, 140, 79, 0.4);
-}
-
-/* Konten teks */
-.about-content {
-  flex: 1;
-}
-
 .about-content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #2d6e42;
-  letter-spacing: 1px;
+  font-size: 1.3rem;
+  color: #2a6f45;
+  margin-bottom: 8px;
 }
 
 .about-content p {
-  font-size: 1rem;
-  line-height: 1.7;
   color: #355b3c;
-  max-width: 600px;
+  font-size: .95rem;
 }
-/* === SCROLL REVEAL ANIMATION === */
+
+/* scroll animation */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
+  transition: .8s ease;
 }
 
 .reveal.active {
@@ -187,174 +208,55 @@
   transform: translateY(0);
 }
 
+/* =========================================================
+   ====================== WISATA SECTION ====================
+   ========================================================= */
 
-
-
-
-/* RESPONSIVE */
-@media (max-width: 800px) {
-  .about-row,
-  .about-row.reversed {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-img img {
-    width: 100%;
-    max-width: 350px;
-  }
-
-  .about-content p {
-    margin: auto;
-  }
-}
-/* === WISATA SECTION — HOVER MAP PREMIUM === */
-
-.destination {
-  position: relative;
-  display: inline-block;
-  margin: 30px;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.destination img {
-  width: 320px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: 0.35s ease;
-}
-
-/* Efek gambar saat hover */
-.destination:hover img {
-  filter: brightness(55%) blur(2px);
-  transform: scale(0.95);
-}
-
-/* MAP POP-UP STYLE */
-.map-container {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.7);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: 0.45s ease;
-  box-shadow: 0 8px 2px rgba(0,0,0,0.35);
-}
-iframe{
-  /* === STYLE UNTUK IFRAME MAP === */
-
-.destination .map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-
-  /* Animasi masuk */
-  transform: scale(1.05);
-  opacity: 0;
-  transition: 0.45s ease;
-}
-
-/* Saat hover, iframe muncul smooth */
-.destination:hover .map-container iframe {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* Tambahan efek glass-card */
-.map-container {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-}
-
-/* MAP muncul halus dengan efek zoom + fade */
-.destination:hover .map-container {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-/* TEKS ALAMAT */
-.destination h6 {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 0.9rem;
-  width: 320px;
-}
-/* === SECTION WISATA - FIXED IMAGE SIZE === */
-.destination img {
-  width: 320px;      /* lebar tetap */
-  height: 220px;     /* tinggi tetap, sesuaikan jika mau lebih tinggi */
-  object-fit: cover; /* menjaga proporsi gambar tapi memotong bagian yang berlebih */
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: 0.35s ease, filter 0.35s ease;
-}
-
-/* === SECTION WISATA (RAPIH & SIMETRIS) === */
 #wisata {
-  padding: 90px 50px;
-  background: #d7f5dd; /* hijau lembut */
+  padding: 80px 40px;
+  background: #d7f5dd;
 }
 
 #wisata h2 {
   text-align: center;
   font-size: 2.4rem;
-  margin-bottom: 50px;
   color: #1f6f3c;
-  font-weight: 700;
-  letter-spacing: 1px;
+  margin-bottom: 40px;
 }
 
-/* GRID SIMETRIS */
 .wisata-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: auto;
 }
 
-/* CARD */
 .destination {
-  position: relative;
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  transition: .3s ease;
 }
 
 .destination:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
-/* GAMBAR */
 .destination img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-/* MAP OVERLAY */
 .map-container {
   position: absolute;
   inset: 0;
   opacity: 0;
   visibility: hidden;
   backdrop-filter: blur(6px);
-  transition: 0.35s ease;
-  border-radius: 14px;
+  transition: .35s ease;
 }
 
 .destination:hover .map-container {
@@ -368,261 +270,124 @@ iframe{
   border: 0;
 }
 
-/* TEKS ALAMAT */
 .destination h6 {
-  background: #fff;
   padding: 12px;
-  font-size: 0.9rem;
+  background: #fff;
   text-align: center;
   color: #2a6f45;
-  border-top: 1px solid #e0e0e0;
+  font-size: .9rem;
 }
-
-
-#home, #about, #wisata {
-  scroll-margin-top: 100px;
-}
-.destination {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 50px;
-  cursor: pointer;
-}
-
-.destination .map-container {
-  position: absolute;
-  top: 0;
-  left:0;
-  width: 90%;
-  height: 90%;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-  z-index: 10;
-}
-
-.destination:hover .map-container {
-  opacity: 1;
-  visibility: visible;
-}
-
-.destination img {
-  width: 320px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  display: block;
-}
-/* === HAMBURGER MENU === */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #2a6f45;
-}
-
-/* NAV responsive */
-@media (max-width: 768px) {
-  nav {
-    position: absolute;
-    top: 75px;
-    right: 0;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 0 0 0 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    transform: translateX(100%);
-    transition: 0.3s ease-in-out;
-  }
-
-  nav.show {
-    transform: translateX(0);
-  }
-
-  nav a {
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .hamburger {
-    display: block;
-  }
-}
-/* === FOOTER === */
 .footer {
-  background: #111;
+  background: linear-gradient(135deg, #1f563a, #2a8c4f);
   color: #fff;
-  padding: 20px 0;
+  padding: 60px 20px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top Section */
+.footer-top {
   text-align: center;
 }
 
-.footer .social-icons {
-  margin-top: 10px;
+.footer-top h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-.footer .social-icons a {
+.footer-top p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  margin: 0 10px;
-  font-size: 22px;
+  background: rgba(255,255,255,0.15);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #fff;
+  color: #1f563a;
+  transform: scale(1.1);
+}
+
+/* Middle Section */
+.footer-middle {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-col h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #e0f3df;
+}
+
+.footer-col a, .footer-col p {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
   transition: 0.3s;
 }
 
-.footer .social-icons a:hover {
-  color: #ffbe0b;
-}
-/* ========================= */
-/*      RESPONSIVE FULL      */
-/* ========================= */
-
-/* Tablet & HP */
-@media (max-width: 768px) {
-
-  /* ===== NAVBAR ===== */
-  header {
-    padding: 15px 20px;
-  }
-
-  nav {
-    position: absolute;
-    top: 75px;
-    right: 0;
-    width: 220px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255,255,255,0.97);
-    padding: 20px;
-    border-radius: 0 0 0 12px;
-    transform: translateX(100%);
-    transition: 0.3s ease-in-out;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  }
-
-  nav.show {
-    transform: translateX(0);
-  }
-
-  nav a {
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 16px; /* font mengecil */
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  /* ===== HOME / HERO ===== */
-  #home {
-    height: 80vh;
-    padding: 0 20px;
-  }
-
-  .container-home h1 {
-    font-size: 2rem; /* mengecil */
-  }
-
-  .container-home p {
-    font-size: 0.9rem; /* mengecil */
-    text-align: center;
-  }
-
-  /* ===== ABOUT SECTION ===== */
-  .about-row,
-  .about-row.reversed {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-img img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-  }
-
-  .about-content h3 {
-    font-size: 1.4rem;
-  }
-
-  .about-content p {
-    font-size: 0.95rem;
-  }
-
-  /* ===== WISATA ===== */
-  .wisata-grid {
-    grid-template-columns: 1fr; /* jadi 1 kolom */
-  }
-
-  .destination img {
-    width: 100%;
-    height: 200px; /* tetap proporsional */
-  }
-
-  .destination h6 {
-    font-size: 0.9rem;
-  }
-
-  /* ===== FOOTER ===== */
-  .footer .social-icons a {
-    font-size: 18px; /* ikon mengecil */
-    margin: 0 5px;
-  }
+.footer-col a:hover {
+  color: #d4f0c6;
 }
 
-/* ========================= */
-/*   HP KECIL (≤480px)      */
-/* ========================= */
-@media (max-width: 480px) {
+/* Bottom Section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  font-size: 0.9rem;
+}
 
-  .container-home h1 {
-    font-size: 1.6rem;
-  }
-
-  .container-home p {
-    font-size: 0.85rem;
-  }
-
-  .about-title {
-    font-size: 2rem;
-  }
-
-  #wisata h2 {
-    font-size: 1.7rem;
-  }
-
-  .destination h6 {
-    font-size: 0.8rem;
-  }
+/* Responsive */
 @media (max-width: 768px) {
-  .about-section {
-    overflow-x: auto;
+  .footer-middle {
+    flex-direction: column;
     gap: 20px;
-    padding: 50px 10px;
-  }
-
-  .about-row {
-    flex: 0 0 250px;
-  }
-
-  .about-row .about-img img {
-    height: 180px;
   }
 }
-
-}
-
-
 
   </style>
 </head>
+
 <body>
-  <header>
+
+<!-- ========================= NAVBAR ========================= -->
+<header>
   <div class="logo">
-    <img src="bandung.jpg" alt="Logo Bandung">
+    <img src="bandung.jpg">
   </div>
 
-  <!-- HAMBURGER -->
   <div class="hamburger" onclick="toggleMenu()">
     <i class="fa-solid fa-bars"></i>
   </div>
@@ -635,174 +400,162 @@ iframe{
   </nav>
 </header>
 
-
-  <!-- === HOME === -->
-  <section id="home">
-    <div class="container-home">
-      <h1>BANDUNG</h1>
-      <p>
-        Bandung adalah cerita yang tidak pernah usai ditulis. Dari jalan Braga yang klasik, hingga sudut kafe kecil di Ciumbuleuit, semuanya menyimpan kisah yang tak kalah indah dari puisi.
+<!-- ========================= HOME ========================= -->
+<section id="home">
+  <div class="container-home">
+    <h1>BANDUNG</h1>
+    <p>
+      Bandung adalah cerita yang tidak pernah usai ditulis.
+       Dari jalan Braga yang klasik, hingga sudut kafe kecil di Ciumbuleuit, semuanya menyimpan kisah yang tak kalah indah dari puisi.
         Bandung bukan hanya tempat untuk dikunjungi, tapi untuk dirasakan dengan mata, dengan hati, dengan seluruh jiwa.
-        Ia adalah kota yang bisa membuatmu jatuh cinta tanpa alasan, lalu merindukannya tanpa tahu kapan bisa kembali.
-        Dan mungkin itulah pesonanya: Bandung tidak meminta untuk diingat, tapi selalu berhasil menjadi bagian dari ingatan.
-        Ada rindu yang tak pernah padam setiap kali nama Bandung disebut. 
-        Rindu pada angin Lembang yang menurunkan suhu hati, pada aroma kopi di sudut Braga, pada tawa yang pecah di antara macetnya Dago. 
-        Bandung adalah kota yang membuat setiap pulang terasa seperti kembali ke bagian diri yang pernah kita tinggalkan
-        . Meski jarak memisahkan,hati selalu punya jalannya sendiri untuk kembali merindukan Bandung.
-      </p>
-    </div>
-  </section>
-  <section id="about" class="about-section">
-  <!-- Card 2 -->
-   <h1>khas bandung</h1>
-  <div class="about-row reveal">
-    <div class="about-img">
-      <img src="Batagor.jpeg" alt="Batagor Bandung">
-    </div>
-    <div class="about-content">
-      <h3>Batagor</h3>
-      <p>Batagor adalah makanan khas Bandung berbahan dasar ikan dan tahu yang digoreng hingga renyah...</p>
-    </div>
+         Ia adalah kota yang bisa membuatmu jatuh cinta tanpa alasan, lalu merindukannya tanpa tahu kapan bisa kembali.
+          Dan mungkin itulah pesonanya Bandung tidak meminta untuk diingat, tapi selalu berhasil menjadi bagian dari ingatan.
+      Ada rindu yang tak pernah padam setiap kali nama Bandung disebut. 
+      Rindu pada angin Lembang yang menurunkan suhu hati, pada aroma kopi di sudut Braga, pada tawa yang pecah di antara macetnya Dago.
+       Bandung adalah kota yang membuat setiap pulang terasa seperti kembali ke bagian diri yang pernah kita tinggalkan .
+        Meski jarak memisahkan,hati selalu punya jalannya sendiri untuk kembali merindukan Bandung.
+    </p>
   </div>
-
-  <!-- Card 3 -->
-  <div class="about-row reveal">
-    <div class="about-img">
-      <img src="gedung sate.jpeg" alt="Gedung Sate">
-    </div>
-    <div class="about-content">
-      <h3>Gedung Sate</h3>
-      <p>Gedung Sate adalah ikon Kota Bandung yang dibangun tahun 1920 </p>
-    </div>
-  </div>
-  
-  <div class="about-row reveal">
-    <div class="about-img">
-      <img src="seblak.jpeg" alt="seblak">
-    </div>
-    <div class="about-content">
-      <h3>seblak</h3>
-      <p>Seblak adalah makanan khas Sunda, khususnya Bandung, Jawa Barat, Indonesia, yang terbuat dari kerupuk basah yang direbus atau ditumis bersama bumbu-bumbu pedas, sayuran, dan kadang ditambah protein seperti telur, sosis, bakso, atau ayam.</p>
-    </div>
-  </div>
-  
-  <div class="about-row reveal">
-    <div class="about-img">
-      <img src="Mercusuar Cafe & Resto Bandung.jpeg" alt="mercusuar cafe">
-    </div>
-    <div class="about-content">
-      
-      <h3>mercusuar cafe</h3>
-      <p>Mercusuar Cafe & Resto Bandung adalah kafe unik dengan pemandangan kota Bandung dari ketinggian. Cocok untuk menikmati kopi sambil bersantai.</p>
-
-    </div>
-  </div>
-  
 </section>
 
+<!-- ========================= ABOUT ========================= -->
+<section id="about">
+  <h2 class="about-title">About Bandung</h2>
 
+  <div class="about-section">
+
+    <div class="about-row reveal">
+      <div class="about-img"><img src="Batagor.jpeg"></div>
+      <div class="about-content"><h3>Batagor</h3><p>Batagor adalah makanan khas Bandung...</p></div>
+    </div>
+
+    <div class="about-row reveal">
+      <div class="about-img"><img src="gedung sate.jpeg"></div>
+      <div class="about-content"><h3>Gedung Sate</h3><p>Ikon Bandung sejak 1920.</p></div>
+    </div>
+
+    <div class="about-row reveal">
+      <div class="about-img"><img src="seblak.jpeg"></div>
+      <div class="about-content"><h3>Seblak</h3><p>Makanan khas Sunda pedas.</p></div>
+    </div>
+
+    <div class="about-row reveal">
+      <div class="about-img"><img src="Mercusuar Cafe & Resto Bandung.jpeg"></div>
+      <div class="about-content"><h3>Mercusuar Cafe</h3><p>Kafe tinggi dengan view kota Bandung.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= WISATA ========================= -->
 <section id="wisata">
   <h2>Destinasi Wisata di Bandung</h2>
 
   <div class="wisata-grid">
 
-    <!-- Gedung Sate -->
     <div class="destination">
-      <img src="gedung sate.jpeg" alt="Gedung Sate">
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
-      </div>
-      <h6>Gedung Sate, Jl. Diponegoro No. 22, Citarum, Bandung.</h6>
+      <img src="gedung sate.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Gedung Sate</h6>
     </div>
 
-    <!-- Kawah Putih -->
     <div class="destination">
-      <img src="Kawah putih bandung.jpeg" alt="Kawah Putih">
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
-      </div>
-      <h6>Kawah Putih, Ciwidey, Kabupaten Bandung.</h6>
+      <img src="Kawah putih bandung.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Kawah Putih</h6>
     </div>
 
-    <!-- Museum Geologi -->
     <div class="destination">
-      <img src="Meuseum Geologi Bandung.jpeg" alt="Museum Geologi">
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
-      </div>
-      <h6>Museum Geologi, Jl. Diponegoro No. 57.</h6>
+      <img src="Meuseum Geologi Bandung.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Museum Geologi</h6>
     </div>
 
-    <!-- Jalan Braga -->
     <div class="destination">
-      <img src="Braga.jpeg" alt="Jalan Braga">
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
-      </div>
-      <h6>Jalan Braga, Kota Bandung.</h6>
+      <img src="Braga.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Jalan Braga</h6>
     </div>
 
-    <!-- Dusun Bambu -->
     <div class="destination">
-      <img src="dusun bambu.jpeg" alt="Dusun Bambu">
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=..."></iframe>
-      </div>
-      <h6>Dusun Bambu, Bandung Barat.</h6>
+      <img src="dusun bambu.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Dusun Bambu</h6>
+    </div>
+
+    <div class="destination">
+      <img src="al jabar.jpeg">
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=..."></iframe></div>
+      <h6>Masjid Al-Jabbar</h6>
     </div>
 
   </div>
 </section>
-<!-- FONT AWESOME (WAJIB ADA) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ========================= FOOTER ========================= -->
+<!-- ========================= FOOTER ========================= -->
 <footer class="footer" id="footer">
-  <div class="footer-container" style="max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:40px 20px;background:#2a6f45;color:#fff;border-top-left-radius:20px;border-top-right-radius:20px;">
-    
-    <!-- Bagian teks & copyright -->
-    <div class="footer-text" style="flex:1;min-width:250px;">
-      <h3 style="margin-bottom:10px;">Explore Bandung</h3>
-      <p style="font-size:0.95rem;line-height:1.5;">Jelajahi Bandung dari rumah atau saat jalan-jalan. Dapatkan informasi kuliner, wisata, dan kafe unik langsung di genggamanmu.</p>
-      <p style="margin-top:15px;font-size:0.85rem;">© 2025 Explore Bandung. All rights reserved.</p>
+  <div class="footer-container">
+    <!-- Footer Top: Brand & Social -->
+    <div class="footer-top">
+      <h2>Explore Bandung</h2>
+      <p>Temukan keindahan Bandung dari wisata, kuliner, budaya, hingga tempat unik.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/explorebandung" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/explorebandung" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com/explorebandung" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.tiktok.com/@explorebandung" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
     </div>
 
-  <div class="social-icons" style="display:flex;justify-content:center;gap:15px;">
-  <a href="https://www.instagram.com/namaakunmu" target="_blank" class="ig" style="color:#fff;font-size:22px;">
-    <i class="fa-brands fa-instagram"></i>
-  </a>
-  <a href="https://www.facebook.com/namaakunmu" target="_blank" class="fb" style="color:#fff;font-size:22px;">
-    <i class="fa-brands fa-facebook-f"></i>
-  </a>
-  <a href="https://twitter.com/namaakunmu" target="_blank" class="tw" style="color:#fff;font-size:22px;">
-    <i class="fa-brands fa-twitter"></i>
-  </a>
-  <a href="https://www.tiktok.com/@namaakunmu" target="_blank" class="tt" style="color:#fff;font-size:22px;">
-    <i class="fa-brands fa-tiktok"></i>
-  </a>
-</div>
+    <!-- Footer Middle: Links -->
+    <div class="footer-middle">
+      <div class="footer-col">
+        <h3>Tentang</h3>
+        <a href="#">Bandung</a>
+        <a href="#">Sejarah</a>
+        <a href="#">Kuliner</a>
+        <a href="#">Wisata</a>
+      </div>
 
+      <div class="footer-col">
+        <h3>Layanan</h3>
+        <a href="#">Panduan Wisata</a>
+        <a href="#">Rekomendasi Kafe</a>
+        <a href="#">Spot Foto</a>
+        <a href="#">Transportasi</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Kontak</h3>
+        <p>Email: explorebandung@mail.com</p>
+        <p>Tel: +62 812 3456 7890</p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom: Copyright -->
+    <div class="footer-bottom">
+      &copy; 2025 Explore Bandung. All rights reserved.
+    </div>
+  </div>
 </footer>
 
 
+
 <script>
-  function toggleMenu() {
-    document.getElementById("nav-menu").classList.toggle("show");
-  }
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+
+// scroll reveal
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("active"); }
+  });
+});
+reveals.forEach(r=>observer.observe(r));
 </script>
-<script>
-  // === SCROLL REVEAL ===
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  reveals.forEach(el => observer.observe(el));
-</script>
-
 
 </body>
 </html>
