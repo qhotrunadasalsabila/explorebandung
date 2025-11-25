@@ -49,7 +49,7 @@ nav {
 }
 
 nav a {
-  color: #224;
+  color:#224;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: .5px;
@@ -548,8 +548,6 @@ Dibangun pada tahun 1920, gedung ini awalnya berfungsi sebagai kantor pemerintah
 function toggleMenu() {
   document.getElementById("nav-menu").classList.toggle("show");
 }
-
-// scroll reveal
 const reveals = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
@@ -562,22 +560,36 @@ reveals.forEach(r=>observer.observe(r));
   <img id="lightbox-img" src="">
 </div>
 <script>
-// Lightbox khusus Section 2
+
 const lightbox = document.getElementById("lightbox");
 const lightImg = document.getElementById("lightbox-img");
 
 document.querySelectorAll(".about-img img").forEach(img => {
-  img.style.cursor = "pointer"; // efek bisa diklik
+  img.style.cursor = "pointer"; 
   img.addEventListener("click", () => {
     lightImg.src = img.src;
     lightbox.classList.add("show");
   });
 });
 
-// Tutup lightbox jika diklik
 lightbox.addEventListener("click", () => {
   lightbox.classList.remove("show");
 });
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("show");
+}
+
+const navMenu = document.getElementById("nav-menu");
+const navLinks = navMenu.querySelectorAll("a");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show"); // menutup menu saat link diklik
+  });
+});
+
+
+
 </script>
 
 </body>
